@@ -7,7 +7,9 @@ import { Provider } from 'react-redux';
 
 const defaultState = {
   page: 9,
-  searchQuery: ''
+  totalCompetitions: 0,
+  competitionsPerPage: 9,
+  searchQuery: '',
 }
 
 const reducer = (state = defaultState, action) => {
@@ -23,6 +25,12 @@ const reducer = (state = defaultState, action) => {
     }
     case "SET_PAGE": {
       return {...state, page: action.payload}
+    }
+    case "SET_TOTAL_COMPETITIONS": {
+      return {...state, totalCompetitions: action.payload}
+    }
+    case "SET_SEARCH_QUERY": {
+      return {...state, searchQuery: action.payload}
     }
     default: 
       return state
